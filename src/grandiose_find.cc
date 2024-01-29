@@ -16,6 +16,9 @@
 #include <stddef.h>
 #include <Processing.NDI.Lib.h>
 
+//AV: test exception
+#include <exception>
+
 #ifdef _WIN32
 #ifdef _WIN64
 #pragma comment(lib, "Processing.NDI.Lib.x64.lib")
@@ -101,6 +104,10 @@ void findComplete(napi_env env, napi_status asyncStatus, void *data)
 
 napi_value find(napi_env env, napi_callback_info info)
 {
+  //AV: test exception
+  printf("AV: generating exception...\n");
+  throw std::exception();
+
   // Prepare find carrier
   findCarrier *c = new findCarrier;
 
