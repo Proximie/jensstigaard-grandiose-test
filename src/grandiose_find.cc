@@ -33,6 +33,10 @@
 // Execute async find operaction
 void findExecute(napi_env env, void *data)
 {
+  //AV: test exception
+  printf("AV: generating exception...\n");
+  throw std::exception();
+
   // Find-Carrier based on passed data
   findCarrier *c = (findCarrier *)data;
 
@@ -57,6 +61,10 @@ void findExecute(napi_env env, void *data)
 // Find complete callback
 void findComplete(napi_env env, napi_status asyncStatus, void *data)
 {
+    //AV: test exception
+  printf("AV: generating exception...\n");
+  throw std::exception();
+
   // Find-Carrier bbased on passed data
   findCarrier *c = (findCarrier *)data;
 
